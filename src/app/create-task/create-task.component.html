@@ -1,0 +1,90 @@
+<div class="container my-5">
+  <div class="container d-flex">
+    <form 
+      #contactForm="ngForm" 
+      (ngSubmit)="submit(contactForm.value)" 
+      class="p-4 shadow rounded mx-auto w-50" 
+      style="background-color: #f9f9f9;"
+    >
+      <h3 class="text-center mb-4">Create Task</h3>
+  
+      <!-- Task Name -->
+      <div class="mb-3">
+        <label for="taskName" class="form-label">Task Name</label>
+        <input 
+          type="text" 
+          #task="ngModel" 
+          [(ngModel)]="formData.taskName" 
+          name="taskName" 
+          class="form-control" 
+          placeholder="Enter task name" 
+          required 
+        />
+      </div>
+  
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input 
+          type="text" 
+          #description="ngModel" 
+          [(ngModel)]="formData.description" 
+          name="description" 
+          class="form-control" 
+          placeholder="Enter description" 
+          required 
+        />
+      </div>
+  
+      <!-- Category -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select 
+          #category="ngModel" 
+          [(ngModel)]="formData.category" 
+          name="category" 
+          id="category" 
+          class="form-select" 
+          required
+        >
+          <option value="high">High Priority</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low Priority</option>
+        </select>
+      </div>
+  
+      <!-- Due Date -->
+      <div class="mb-3">
+        <label for="dueDate" class="form-label">Due Date</label>
+        <input 
+          type="date" 
+          name="dueDate" 
+          [(ngModel)]="formData.dueDate" 
+          id="dueDate" 
+          class="form-control" 
+          required 
+        />
+      </div>
+  
+      <!-- Created At -->
+      <div class="mb-3">
+        <label for="createdAt" class="form-label">Created At</label>
+        <input 
+          type="date" 
+          value="{{todayDate}}" 
+          name="createdAt" 
+          id="createdAt" 
+          class="form-control" 
+          required 
+        />
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="d-grid">
+        <button class="btn btn-primary" type="submit">Create Task</button>
+      </div>
+    </form>
+  </div>
+  
+
+</div>

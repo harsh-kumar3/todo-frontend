@@ -1,0 +1,36 @@
+<div class="container my-4">
+  <form
+    #login="ngForm"
+    (ngSubmit)="userLogin(login.value)"
+    class="p-4 shadow rounded w-50 mx-auto"
+    style="background-color: #f9f9f9"
+  >
+    <h3 class="text-center mb-4">Login</h3>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        #email
+        [(ngModel)]="user.email"
+        class="form-control"
+        placeholder="Enter your email"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        #password
+        [(ngModel)]="user.password"
+        class="form-control"
+        placeholder="Enter your password"
+        required
+      />
+    </div>
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+</div>

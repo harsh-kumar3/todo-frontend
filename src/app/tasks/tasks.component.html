@@ -1,0 +1,9 @@
+<div class="container py-5">
+    <div class="row">
+        @for(task of allTasks; track $index){
+            <div class="col-3 my-2"><app-task-card [task] = "task"></app-task-card></div>
+        }@empty {
+            <div class="text-center">There is No Tasks!! Enjoy Your Day</div>
+        }
+    </div>
+</div>
