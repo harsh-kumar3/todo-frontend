@@ -25,4 +25,6 @@ export class LoginComponent {
     console.log("Credential : ",credential)
     this.authService.loginUser(credential)
   }
+  
+
 }
