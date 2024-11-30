@@ -17,15 +17,18 @@
     </div>
     <div>
       <ul class="navbar-nav d-flex flex-row">
-        <li class="nav-item px-3">
-          <a routerLink="/login" class="nav-link">Login</a>
-        </li>
-        <li class="nav-item px-3">
-          <a routerLink="/signup" class="nav-link">Sign Up</a>
-        </li>
-        <li class="nav-item px-3">
-          <a (click) = "logout()" class="nav-link pointer">Logout</a>
-        </li>
+        @if(!authService.isLoggedIn()){
+            <li class="nav-item px-3">
+              <a routerLink="/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item px-3">
+              <a routerLink="/signup" class="nav-link">Sign Up</a>
+            </li>
+        }@else{
+          <li class="nav-item px-3">
+            <a (click) = "logout()" class="nav-link pointer">Logout</a>
+          </li>
+        }
       </ul>
     </div>
   </div>
