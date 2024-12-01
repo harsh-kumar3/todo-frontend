@@ -2,7 +2,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { tasks } from '../app.interfaces';
-import { TaskSharedServiceService } from '../task-shared-service.service';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-create-task',
@@ -13,9 +13,8 @@ import { TaskSharedServiceService } from '../task-shared-service.service';
 })
 export class CreateTaskComponent {
   todayDate:any = new Date().toISOString().split('T')[0];
-  constructor(private taskService : TaskSharedServiceService) {
+  constructor(private taskService : TaskService) {
   }
-
 
   formData : tasks = {
     taskName: '',
@@ -28,6 +27,6 @@ export class CreateTaskComponent {
 
   submit(formValue : tasks){
     console.log(formValue)
-    this.taskService.setTasks(formValue)
+    this.taskService.createTask(formValue)
   }
 }

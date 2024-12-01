@@ -1,16 +1,43 @@
-<div class="card">
+<div class="card mb-3 shadow-sm">
     <div class="card-body">
-        <h3 class="card-title">{{task.taskName}}</h3>
-        <p>
-            {{task.description}}
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 
+          class="card-title text-truncate"
+          [class.text-decoration-line-through]="task.isComplete"
+        >
+          {{ task.taskName }}
+        </h3>
+        <button class="btn btn-sm btn-danger" (click)="deleteTask(task)">
+          Delete
+        </button>
+      </div>
+      <p class="text-muted">{{ task.description }}</p>
+      <p>
+        <span class="badge bg-primary">{{ task.category }}</span>
+      </p>
+      <div class="d-flex justify-content-between">
+        <small class="text-muted">
+          Created: {{ task.createdAt | date: 'short' }}
+        </small>
+        <small class="text-muted">
+          Due: {{ task.dueDate | date: 'short' }}
+        </small>
+      </div>
+      <div class="mt-3 d-flex align-items-center">
+        <button
+          class="btn btn-sm btn-outline-success"
+          [class.active]="task.isComplete"
+          (click)="toggleCompletion(task)"
+        >
+          {{ task.isComplete ? 'Mark as Incomplete' : 'Mark as Complete' }}
+        </button>
+        <p class="ms-3 mb-0">
+          Status: 
+          <span [class.text-success]="task.isComplete" [class.text-danger]="!task.isComplete">
+            {{ task.isComplete ? 'Completed' : 'Incomplete' }}
+          </span>
         </p>
-        <p>
-            {{task.category}}
-        </p>
-        <div>
-            <p>{{task.createdAt}}</p>
-            <p>{{task.dueDate}}</p>
-        </div>
-        <p>{{task.isComplete}}</p>
+      </div>
     </div>
-</div>
+  </div>
+  

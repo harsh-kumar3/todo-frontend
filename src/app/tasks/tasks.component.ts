@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskCardComponent } from '../task-card/task-card.component';
-import { TaskSharedServiceService } from '../task-shared-service.service';
 import { tasks } from '../app.interfaces';
 import { JsonPipe } from '@angular/common';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -13,9 +13,9 @@ import { JsonPipe } from '@angular/common';
 })
 export class TasksComponent implements OnInit {
   allTasks: tasks[] = [];
-  constructor(private tasks: TaskSharedServiceService) {}
+  constructor(private tasks: TaskService) {}
   ngOnInit(): void {
-    this.allTasks = this.tasks.getTasks()
-    console.log("All Tasks : ", this.allTasks)
+    this.allTasks = this.tasks.getTasks();
+    console.log('All Tasks : ', this.allTasks);
   }
 }
